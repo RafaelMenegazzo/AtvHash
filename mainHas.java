@@ -35,10 +35,17 @@ class mainHas {
 		//Procura hash encadeado
 		for(int i = 0; i < 100; i++) {
 			
-			String chave = r.nextInt(500) + "";
-			System.out.println(tabelahash.recuperar(chave));
-			
+			String chave;
+		    String valor;
+
+		    do {
+		        chave = r.nextInt(500) + "";
+		        valor = tabelahash.recuperar(chave);
+		    } while (valor == null);
+		    
+		    System.out.println(valor);
 		}
+			
 		
 		endTime = System.nanoTime();
 		System.out.println((double) (endTime - startTime) / 1000000000 + "Segundos procurando - Hash encadeado");
@@ -68,11 +75,16 @@ class mainHas {
 //		
 		//Procura hash endereçamento aberto
 		for(int i = 0; i < 100; i++) {
-//			
-			String chave = r.nextInt(500) + "";
-			System.out.println(hash2.recuperar(chave));
-			
+			String chave;
+		    String valor;
+
+		    do {
+		        chave = r.nextInt(500) + "";
+		        valor = hash2.recuperar(chave);
+		    } while (valor == null);
+		    System.out.println(valor);
 		}
+			
 //		
 		endTime = System.nanoTime();
 		System.out.println((double) (endTime - startTime) / 1000000000 + "Segundos procurando: Lista endereçamento");
@@ -116,12 +128,19 @@ class mainHas {
 		
 		startTime = System.nanoTime();
 		//pesquisa sdbm
-		for(int i = 0; i < 1000; i++){
+		for(int i = 0; i < 100; i++){
 			
-			String chave = r.nextInt() + "";
-			sdbm.recuperar(chave);
+			    String chave;
+			    String valor;
+
+			    do {
+			        chave = r.nextInt(500) + "";
+			        valor = sdbm.recuperar(chave);
+			    } while (valor == null);
+			    
+			    System.out.println(valor);
+			}
 			
-		}
 		endTime = System.nanoTime();
 		System.out.println((double) (endTime - startTime) / 1000000000 + "Segundos pesquisa SDBM");
 		
